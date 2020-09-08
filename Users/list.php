@@ -1,9 +1,8 @@
 <?php 
 if(!require '../database/connection.php') require '../database/connection.php';
 
-$login = $_POST['login'];
 try{
-    $query = "select * from user where login='$login' ";
+    $query = "select * from user";
     $c = $con->prepare($query);
     if($c->execute() and $c->rowCount() > 0){
         while($row = $c->fetch(PDO::FETCH_OBJ)){
